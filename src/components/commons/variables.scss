@@ -6,3 +6,7 @@ $dark-color: #333333;
 
 $info-color: #4490fb;
 $danger-color: #ef6355;
+
+$form-error-block-margin: 20px;
+$form-error-block-height: 60px;
+$form-error-height: $form-error-block-margin + $form-error-block-height;

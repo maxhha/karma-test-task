@@ -1,13 +1,19 @@
 @import "../commons/helpers";
+@import "../commons/variables";
 
 $form-width: 330px;
 $form-height: 390px;
-
 .login-form {
     width: $form-width;
     height: $form-height;
 
     &_long-shadow {
         @include flat-long-shadow($form-width, $form-height, 4px, 300px, 45deg, 0.35);
+    }
+    &_error {
+        height: $form-height + $form-error-height;
+    }
+    &_long-shadow-error {
+        @include flat-long-shadow($form-width, $form-height + $form-error-height, 4px, 300px, 45deg, 0.35);
     }
 }
