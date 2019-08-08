@@ -1,0 +1,40 @@
+@import "~mathsass";
+
+@mixin flat-long-shadow( // Implements flat shadow in parents ::after element.
+                        // All parent parameters must have same units
+    $parent-width,
+    $parent-height,
+    $parent-border-radius,
+    $shadow-length,
+    $shadow-angle, // from top border
+    $shadow-opacity
+    ){
+    transform-style: preserve-3d;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        $diagonal: sqrt(pow(strip-unit($parent-width), 2) + pow(strip-unit($parent-height), 2)) * ($parent-width * 0 + 1);
+        $diagonal-angle: atan($form-width / $form-height);
+        $d-cos: cos($diagonal-angle);
+        $magic-delta: 1 - tan($diagonal-angle);
+        $magic-outer-distance: sqrt(pow($magic-delta, 2) * (pow($d-cos, 2) - 1) + 1) - $magic-delta * $d-cos;
+        $outer-distance: $magic-outer-distance * $parent-border-radius / 2;
+        height: calc( #{$diagonal} - #{$outer-distance * 2});
+        transform-origin: top left;
+        width: $shadow-length;
+
+        transform:
+            translateZ(-1px)
+            translateX($parent-width - $outer-distance * $d-cos)
+translateY($outer-distance * sin($diagonal-angle))
+            rotate(#{$diagonal-angle}rad)
+            skewY(#{unitless-rad($shadow-angle) - $diagonal-angle}rad);
+
+        background-image: linear-gradient(-90deg, rgba(0,0,0,0) 0%, #000 100%);;
+        opacity: $shadow-opacity;
+    }
+}
