@@ -1,0 +1,25 @@
+schema {
+  query: RootQueryType
+  mutation: Mutation
+}
+
+type Mutation {
+  id: ID
+  registerUser(username: String!, password: String!, confirmationPassword: String!): Token
+  loginUser(username: String!, password: String!): Token
+}
+
+type RootQueryType {
+  id: ID
+  getCurrentUser: User
+}
+
+type Token {
+  token: String
+}
+
+type User {
+  id: String
+  username: String
+  password: String
+}

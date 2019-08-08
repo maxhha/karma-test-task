@@ -4,16 +4,15 @@ import {
   RecordSource,
   Store,
 } from 'relay-runtime';
-import {AUTH_TOKEN} from "constants";
+import {AUTH_TOKEN} from "/constants";
 
 function fetchQuery(
   operation,
   variables,
 ) {
-  return fetch(':4000/graphql', {
+  return fetch('http://localhost:4000/graphql', {
     method: 'POST',
     headers: {
-      'Authorization':
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
