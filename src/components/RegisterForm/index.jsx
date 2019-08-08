@@ -1,6 +1,6 @@
 // RegisterForm
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import RegisterQuery from "/queries/register.js";
 
 import "../commons/form.scss";
@@ -62,7 +62,10 @@ class RegisterForm extends React.Component {
                     type="submit"
                     value="REGISTER"
                 />
-                <a className="form__link">Member Login</a>
+                <Link
+                    className="form__link"
+                    to="/login"
+                >Member Login</Link>
             </form>
         );
     }

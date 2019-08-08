@@ -1,6 +1,6 @@
 // LoginForm
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import LoginQuery from "/queries/login.js";
 
 
@@ -49,7 +49,10 @@ class LoginForm extends React.Component {
                     required
                 />
                 <input className="form__submit" type="submit" value="LOGIN"/>
-                <a className="form__link">Forgot Password?</a>
+                <Link
+                    className="form__link"
+                    to="/register"
+                >Forgot Password?</Link>
             </form>
         );
     }

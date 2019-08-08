@@ -4,7 +4,7 @@ import {
   RecordSource,
   Store,
 } from 'relay-runtime';
-import {AUTH_TOKEN} from "/constants";
+import { AUTH_TOKEN } from "/constants";
 
 function fetchQuery(
   operation,
@@ -13,6 +13,7 @@ function fetchQuery(
   return fetch('http://localhost:4000/graphql', {
     method: 'POST',
     headers: {
+      'Authorization': window.localStorage.getItem(AUTH_TOKEN, ''),
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({

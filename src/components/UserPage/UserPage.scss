@@ -1,0 +1,31 @@
+@import "../commons/variables";
+
+.user-page {
+    width: 100vw;
+    height: 100vh;
+    padding: 10rem;
+    background-color: $light-color;
+    text-align: center;
+    &__error {
+        color: $danger-color;
+        font-weight: 400;
+    }
+    &__title {
+
+        font-size: 30px;
+    }
+    &__username {
+        color: $primary-color1;
+    }
+    &__home {
+        display: inline-block;
+        padding: 1rem;
+        margin-top: 1rem;
+        background-color: $primary-color1;
+        color: $light-color;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

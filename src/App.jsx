@@ -7,6 +7,7 @@ import './App.scss';
 
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import UserPage from "./components/UserPage";
 
 function App() {
   return (
@@ -37,10 +38,6 @@ const RegisterPage = () => {
             <RegisterForm />
         </div>
     );
-}
-
-const UserPage = () => {
-    return (<h1> Hello user </h1>);
 }
 
 export default App;

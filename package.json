@@ -16,6 +16,7 @@
     "babel-preset-react-app": "^9.0.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "classnames": "^2.2.6",
     "core-js": "^2.5.7",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
@@ -70,7 +71,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "relay": "relay-compiler --src ./src/queries --schema ./schema.graphql"
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions=js --extensions=jsx"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -19,7 +19,7 @@ export default function(variables) {
                 if (err)
                     reject(err)
                 else {
-                    //window.localStorage.set(AUTH_TOKEN, res.loginUser.token);
+                    window.localStorage.setItem(AUTH_TOKEN, res.loginUser.token);
                     resolve()
                 }
             },
