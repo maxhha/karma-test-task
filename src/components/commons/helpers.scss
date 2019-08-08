@@ -18,11 +18,14 @@
         left: 0;
 
         $diagonal: sqrt(pow(strip-unit($parent-width), 2) + pow(strip-unit($parent-height), 2)) * ($parent-width * 0 + 1);
-        $diagonal-angle: atan($form-width / $form-height);
+        $diagonal-angle: atan($parent-width / $parent-height);
         $d-cos: cos($diagonal-angle);
-        $magic-delta: 1 - tan($diagonal-angle);
-        $magic-outer-distance: sqrt(pow($magic-delta, 2) * (pow($d-cos, 2) - 1) + 1) - $magic-delta * $d-cos;
-        $outer-distance: $magic-outer-distance * $parent-border-radius / 2;
+        $d-sin: sin($diagonal-angle);
+        $d-tan: tan($diagonal-angle);
+        $magic-delta: 1 - 1/$d-tan;
+        $magic-inner-distance: sqrt(pow($magic-delta, 2) * (pow($d-cos, 2) - 1) + 1) - $magic-delta * $d-cos;
+        $magic-outer-distance: 1/$d-sin - $magic-inner-distance;
+        $outer-distance: $magic-outer-distance * $parent-border-radius;
         height: calc( #{$diagonal} - #{$outer-distance * 2});
         transform-origin: top left;
         width: $shadow-length;
@@ -30,7 +33,7 @@
         transform:
             translateZ(-1px)
             translateX($parent-width - $outer-distance * $d-cos)
-translateY($outer-distance * sin($diagonal-angle))
+translateY($outer-distance * $d-sin)
             rotate(#{$diagonal-angle}rad)
             skewY(#{unitless-rad($shadow-angle) - $diagonal-angle}rad);
 

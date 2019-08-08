@@ -51,6 +51,7 @@
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
     "react-relay": "^5.0.0",
+    "react-router-dom": "^5.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
@@ -135,11 +136,14 @@
     ],
     "plugins": [
       "relay",
-      ["babel-plugin-module-resolver", {
-        "alias": {
-          "": "./src/"
+      [
+        "babel-plugin-module-resolver",
+        {
+          "alias": {
+            "": "./src/"
+          }
         }
-      }]
+      ]
     ]
   },
   "devDependencies": {
