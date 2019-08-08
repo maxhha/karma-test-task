@@ -24,18 +24,19 @@ function App() {
 }
 
 const LoginPage = () => {
-
-    return (<div className="app__page app__page_login">
-        <LoginForm />
-    </div>);
+    return (
+        <div className="app__page app__page_login">
+            <LoginForm />
+        </div>
+    );
 }
 
 const RegisterPage = () => {
-
-
-    return (<div className="app__page app__page_register">
+    return (
+        <div className="app__page app__page_register">
             <RegisterForm />
-    </div>);
+        </div>
+    );
 }
 
 const UserPage = () => {
